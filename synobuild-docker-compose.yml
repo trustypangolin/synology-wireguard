@@ -1,0 +1,13 @@
+version: "3.7"
+services:
+
+  wireguard:
+    image: "papina/synology-wireguard:latest"
+    container_name: "wireguard"
+    privileged: true
+    volumes:
+      - ${PWD}/synology/pkg:/result_spk
+      - ${PWD}/synology/toolkit_tarballs:/toolkit_tarballs
+    environment:
+      - DSM_VER=7.0
+      - PACKAGE_ARCH=apollolake
